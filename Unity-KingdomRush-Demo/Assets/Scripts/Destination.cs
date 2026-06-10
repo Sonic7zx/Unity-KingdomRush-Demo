@@ -5,7 +5,8 @@ using UnityEngine;
 public class Destination : MonoBehaviour
 {
     [SerializeField] int maxHealth = 25;
-    private int currentHealth;
+    public int currentHealth;
+    private int damage;
     void Start()
     {
         currentHealth = maxHealth;
@@ -15,5 +16,15 @@ public class Destination : MonoBehaviour
     void Update()
     {
         
+    }
+ 
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        Debug.Log(currentHealth);
+        if (currentHealth <= 0)
+        {
+            Debug.Log("游戏失败");
+        }
     }
 }

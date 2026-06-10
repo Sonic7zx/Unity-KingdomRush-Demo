@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GobliMove : MonoBehaviour
+public class EnemyMove : MonoBehaviour
 {
     [SerializeField] Transform[] waypoints;
     private int index = 0;
-    [SerializeField] float speed = 2f;
+    protected float speed = 2f;
     private Vector3 target; 
     private Vector3 offset;
     void Start()
@@ -32,7 +32,6 @@ public class GobliMove : MonoBehaviour
             if (index == waypoints.Length)
             {
                 Debug.Log("到达终点");
-                Destroy(gameObject);  // 后续改为扣血逻辑
             }
         }
     }
