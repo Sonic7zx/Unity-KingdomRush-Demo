@@ -7,9 +7,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] int maxHealth = 10;
     protected int damageToPlayer = 1;
     [SerializeField] int getGold = 25;
+    protected int defense = 0;
+    private int currentHealth;
+    [SerializeField] Animator animator;
+    protected bool isAlive = false;
     void Start()
     {
-        
+        currentHealth = maxHealth;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -28,5 +33,18 @@ public class Enemy : MonoBehaviour
             }
             Destroy(gameObject);
         }
+    }
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            animator.SetBool("isDead", true);
+            isAlive = false;
+        }
+    }
+    void DestroyEnemy()
+    {
+        Destroy(gameObject);
     }
 }
