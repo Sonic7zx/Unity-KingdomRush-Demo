@@ -8,20 +8,16 @@ public class Enemy : MonoBehaviour
     protected int damageToPlayer = 1;
     [SerializeField] int getGold = 25;
     protected int defense = 0;
-    private int currentHealth;
+    private int currentHealth = 10;
     [SerializeField] Animator animator;
-    protected bool isAlive = false;
+    public bool isAlive = true;
     void Start()
     {
+        isAlive = true;
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == ("Destination"))
@@ -31,7 +27,7 @@ public class Enemy : MonoBehaviour
             {
                 destination.TakeDamage(damageToPlayer);
             }
-            Destroy(gameObject);
+            DestroyEnemy();
         }
     }
     public void TakeDamage(int damage)
@@ -47,4 +43,6 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+
 }
