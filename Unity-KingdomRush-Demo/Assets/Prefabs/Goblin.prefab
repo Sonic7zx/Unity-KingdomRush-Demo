@@ -200,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   getGold: 25
-  animator: {fileID: 0}
+  isAlive: 1
 --- !u!114 &3722377538728196062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee2933bc0c8af04c8a31d0c0e1860d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypointParent: {fileID: 0}
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -230,7 +231,7 @@ GameObject:
   - component: {fileID: 6692137432506225739}
   - component: {fileID: 5273276058158024429}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

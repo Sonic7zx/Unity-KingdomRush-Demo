@@ -1,30 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 
 public class Arrow : MonoBehaviour
 {
-    [SerializeField] float speed = 10f;
-    [SerializeField] int damage = 4;
+    [SerializeField] float speed = 15f;
+    [SerializeField] int damage = 3;
     private Enemy targetEnemy;
-    
+
+
 
     public void Initialize(Enemy target,Vector2 StartPos)
     {
         targetEnemy = target;
         gameObject.SetActive(true);
         transform.position = StartPos;
+
+        Vector2 dir = transform.position - targetEnemy.transform.position;
+        float aimAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, aimAngle);
     }
     void Update()
     {
-        if(targetEnemy == null)//当敌人被消灭时
+
+        
+
+        if (targetEnemy == null)//当敌人被消灭时
         {
             ReturnToPool();
         }
         
         transform.position = Vector2.MoveTowards(transform.position, targetEnemy.transform.position, speed * Time.deltaTime);//箭矢飞向敌人
         
-        if (Vector2.Distance(transform.position, targetEnemy.transform.position) < 0.1f)//当箭矢到达敌人位置时
+        if (Vector2.Distance(transform.position, targetEnemy.transform.position) < 0.05f)//当箭矢到达敌人位置时
         {
             targetEnemy.TakeDamage(damage);
             ReturnToPool();
@@ -32,7 +40,6 @@ public class Arrow : MonoBehaviour
     }
     void ReturnToPool()
     {
-        gameObject.SetActive(false);
-        PoolManager.Instance.ReleaseArrow(this);
+        BulletPool.Instance.ReleaseArrow(this);
     }
 }

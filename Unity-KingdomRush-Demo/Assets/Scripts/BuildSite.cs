@@ -10,7 +10,6 @@ public class BuildSite : MonoBehaviour
     [SerializeField] Color32 color = new Color32(255, 255, 255, 255);
     private Color originalColor;
     private Vector3 originalScale;
-    private bool isBuilding = false;
     [Header("建造菜单")]
     public GameObject buildMenuPrefab;
     [SerializeField] GameObject currentMenu;

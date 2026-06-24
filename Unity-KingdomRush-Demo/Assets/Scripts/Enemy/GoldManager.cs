@@ -4,8 +4,7 @@ using UnityEngine.UI;
 public class GoldManager : MonoBehaviour
 {
     public static GoldManager Instance;
-    [SerializeField] private int startingGold = 150;
-    private int currentGold;
+    public int currentGold;
     [SerializeField] private Text goldText;
 
     void Awake()
@@ -20,8 +19,6 @@ public class GoldManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        currentGold = startingGold;
-        UpdateUI();
     }
 
     public bool HasEnough(int amount)
@@ -51,7 +48,7 @@ public class GoldManager : MonoBehaviour
         UpdateUI();
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
         if (goldText != null)
             goldText.text = currentGold.ToString();

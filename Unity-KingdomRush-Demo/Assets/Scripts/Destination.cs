@@ -1,30 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Destination : MonoBehaviour
 {
-    [SerializeField] int maxHealth = 25;
+    public int maxHealth = 25;
     public int currentHealth;
-    private int damage;
-    void Start()
-    {
-        currentHealth = maxHealth;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
- 
+    [SerializeField] Text healthText;
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        UpdateUI();
         Debug.Log(currentHealth);
         if (currentHealth <= 0)
         {
             Debug.Log("游戏失败");
         }
+    }
+    public void UpdateUI()
+    {
+        healthText.text = currentHealth.ToString();
     }
 }

@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class Goblin : Enemy
 {
-    void Start()
-    {
-        damageToPlayer = 1;
-    }
+
 }

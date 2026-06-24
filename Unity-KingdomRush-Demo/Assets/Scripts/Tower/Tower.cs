@@ -7,7 +7,7 @@ public class Tower : MonoBehaviour
     private Enemy targetEnemy;
     [SerializeField] private float range;
     private CircleCollider2D rangeCollider;
-    [SerializeField]private List<Enemy> enemiesInRange = new List<Enemy>();//范围内敌人的列表
+    [SerializeField] private List<Enemy> enemiesInRange = new List<Enemy>();//范围内敌人的列表
 
     [SerializeField] private Transform shootPos;
     private float shootCd = 0.8f;
@@ -23,7 +23,6 @@ public class Tower : MonoBehaviour
         if (other.tag == "Enemy" && !enemiesInRange.Contains(other.GetComponent<Enemy>()))
         {   
             enemiesInRange.Add(other.GetComponent<Enemy>());
-            Debug.Log("enemy in range");
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -31,16 +30,26 @@ public class Tower : MonoBehaviour
         if (other.tag == "Enemy")
         {
             enemiesInRange.Remove(other.GetComponent<Enemy>());
-            Debug.Log("enemy out of range");
         }
     }
     void Update()
     {
-        if(targetEnemy == null || !targetEnemy.isAlive || !enemiesInRange.Contains(targetEnemy))
+        if (targetEnemy != null && (!targetEnemy.isAlive || !enemiesInRange.Contains(targetEnemy) ))
+        {
+            //立刻从范围内移除死敌人，避免后续遍历干扰
+            enemiesInRange.Remove(targetEnemy);
+            //清空当前目标，触发重新索敌
+            targetEnemy = null;
+        }
+
+        //没有目标时，重新寻找最近敌人
+        if (targetEnemy == null)
         {
             findEnemy();
         }
-        if(targetEnemy != null && targetEnemy.isAlive)
+
+        //有存活目标才射击
+        if (targetEnemy != null && targetEnemy.isAlive && enemiesInRange.Contains(targetEnemy))
         {
             shoot();
         }
@@ -55,17 +64,11 @@ public class Tower : MonoBehaviour
         {
             Enemy currentEnemy = enemiesInRange[i];
 
-            //// 跳过空的、已经死亡的敌人
-            //if (currentEnemy == null)
-            //{
-            //    continue;
-            //}
-
             // 获取敌人到基地的剩余路径长度
             float remainDist = currentEnemy.GetComponent<EnemyMove>().RemainDistance();
 
-            // 找到更短的，就更新为新目标
-            if (remainDist < minRemainDistance)
+            // 找到更短的且isAlive，就更新为新目标
+            if (remainDist < minRemainDistance && currentEnemy.isAlive)
             {
                 minRemainDistance = remainDist;
                 nearestEnemy = currentEnemy;
@@ -81,9 +84,8 @@ public class Tower : MonoBehaviour
         if(shootCdTimer >= shootCd)
         {
             shootCdTimer = 0;
-            Arrow arrow = PoolManager.Instance.GetArrow();
+            Arrow arrow = BulletPool.Instance.GetArrow();
             arrow.Initialize(targetEnemy, shootPos.position);
-
         }
     }
     void InitEnemies()

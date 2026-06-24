@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,13 +7,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] int getGold = 25;
     protected int defense = 0;
     private int currentHealth = 10;
-    [SerializeField] Animator animator;
+    private Animator animator;
     public bool isAlive = true;
-    void Start()
+    private void Awake()
     {
+        animator = GetComponent<Animator>();
         isAlive = true;
         currentHealth = maxHealth;
-        animator = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -27,7 +25,8 @@ public class Enemy : MonoBehaviour
             {
                 destination.TakeDamage(damageToPlayer);
             }
-            DestroyEnemy();
+            Destroy(gameObject);//当敌人到达终点时销毁
+            WaveManager.Instance.OnEnemyDied();//提醒波次管理器此敌人死亡
         }
     }
     public void TakeDamage(int damage)
@@ -39,9 +38,11 @@ public class Enemy : MonoBehaviour
             isAlive = false;
         }
     }
-    void DestroyEnemy()
+    void DestroyEnemy()//由动画事件执行
     {
         Destroy(gameObject);
+        GoldManager.Instance.AddGold(getGold);
+        WaveManager.Instance.OnEnemyDied();
     }
 
 

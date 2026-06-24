@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
-
 public class BuildMenu : MonoBehaviour
 {
     private BuildSite currentSite;
