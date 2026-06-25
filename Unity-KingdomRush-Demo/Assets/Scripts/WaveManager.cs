@@ -70,7 +70,6 @@ public class WaveManager : MonoBehaviour
             currentWaveIndex = i;
             WaveConfigSO waveConfig = waves[i];
             isWaveActive = true;
-            Debug.Log($"第 {i + 1} 波开始！");
             
 
             yield return new WaitForSeconds(waveConfig.BeforeWaveTime);
@@ -87,7 +86,6 @@ public class WaveManager : MonoBehaviour
             yield return new WaitUntil(() => enemiesAlive <= 0);
 
             isWaveActive = false;
-            Debug.Log($"第 {i + 1} 波完成！");
 
             if (i == waves.Count - 1)
             {
