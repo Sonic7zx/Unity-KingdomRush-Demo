@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1280218542688110548}
   - component: {fileID: 226807299412909686}
   - component: {fileID: 4036741631104824995}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ArcherTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 5.5
+  enemiesInRange: []
   shootPos: {fileID: 4930123232138614624}
 --- !u!1 &6796630034635421536
 GameObject:
@@ -167,7 +168,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4930123232138614624}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

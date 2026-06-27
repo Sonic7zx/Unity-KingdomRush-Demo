@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 834157355566309554}
   - component: {fileID: 8388936911441203623}
   - component: {fileID: 4518288223432528615}
-  - component: {fileID: 7615377541590345149}
-  - component: {fileID: 3722377538728196062}
+  - component: {fileID: -4547507279512445526}
+  - component: {fileID: 7321949270113364378}
   m_Layer: 0
-  m_Name: Goblin
+  m_Name: barkie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -673988473, guid: d5c5a5f5e22eb8840b28a740df0c29cb, type: 3}
+  m_Sprite: {fileID: 1488729455, guid: 163cf552569c85140a79b4bf00e6563d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -101,7 +101,7 @@ Animator:
   m_GameObject: {fileID: 600420509016896066}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1ce033c0a13598840b0a664ed2befa8b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 07120cdfa7e744c43832ac27b866d52c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -186,7 +186,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7615377541590345149
+--- !u!114 &-4547507279512445526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,13 +195,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 600420509016896066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d164f15f01834744f97e215689148763, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c487c0ac9e50c64b9d9de4b85ac967c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  getGold: 25
   isAlive: 1
---- !u!114 &3722377538728196062
+--- !u!114 &7321949270113364378
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,16 +208,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 600420509016896066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ee2933bc0c8af04c8a31d0c0e1860d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 06cd87bee75ded74a8fe51ead9e434f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   waypointParent: {fileID: 0}
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypoints: []
   enemy: {fileID: 0}
 --- !u!1 &5834885354218679807
 GameObject:
@@ -247,8 +240,8 @@ Transform:
   m_GameObject: {fileID: 5834885354218679807}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.376, z: 0}
-  m_LocalScale: {x: 2.11, y: 1, z: 1}
+  m_LocalPosition: {x: -0, y: -0.371, z: 0}
+  m_LocalScale: {x: 3.3548234, y: 1.5899637, z: 0.63761}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8517166640293089667}

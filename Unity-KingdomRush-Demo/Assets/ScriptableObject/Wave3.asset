@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56151095605293c41b4cc165e532ba56, type: 3}
   m_Name: Wave3
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 600420509016896066, guid: 6d54c834441965c499492ced38730265, type: 3}
-  enemyCount: 10
-  IntervalBetweenEnemies: 1.5
-  BeforeWaveTime: 4
+  enemyPrefab: {fileID: 600420509016896066, guid: 92520773d1f09a04fa59d84dc00516fb, type: 3}
+  enemyCount: 20
+  IntervalBetweenEnemies: 0.4
+  BeforeWaveTime: 3

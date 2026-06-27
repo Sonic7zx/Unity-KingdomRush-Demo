@@ -15,4 +15,4 @@ MonoBehaviour:
   enemyPrefab: {fileID: 600420509016896066, guid: 6d54c834441965c499492ced38730265, type: 3}
   enemyCount: 5
   IntervalBetweenEnemies: 1.5
-  BeforeWaveTime: 2
+  BeforeWaveTime: 4

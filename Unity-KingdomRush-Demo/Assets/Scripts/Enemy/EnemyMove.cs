@@ -11,10 +11,9 @@ public class EnemyMove : MonoBehaviour
     private Vector3 target; 
     private Vector3 offset;
     [SerializeField] private Enemy enemy;
-    void Awake()
+    protected virtual void Awake()
     {
         enemy = GetComponent<Enemy>();
-        waypointParent = GameObject.Find("Waypoints").transform;
         if (waypointParent != null)
         {
             int childCount = waypointParent.childCount;

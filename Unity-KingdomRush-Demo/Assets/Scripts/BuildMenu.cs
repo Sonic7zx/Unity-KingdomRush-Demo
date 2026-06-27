@@ -1,5 +1,7 @@
 using UnityEngine;
-public class BuildMenu : MonoBehaviour
+using UnityEngine.EventSystems;
+
+public class BuildMenu : MonoBehaviour, IPointerExitHandler
 {
     private BuildSite currentSite;
 
@@ -25,9 +27,17 @@ public class BuildMenu : MonoBehaviour
             Debug.Log("金币不足，无法建造箭塔");
         }
     }
-
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Debug.Log("鼠标移出菜单");
+        Destroy(gameObject);
+    }
     public void OnCancelClick()
     {
         Destroy(gameObject);
+    }
+    private void OnDestroy()
+    {
+        currentSite?.OnMenuClosed();
     }
 }

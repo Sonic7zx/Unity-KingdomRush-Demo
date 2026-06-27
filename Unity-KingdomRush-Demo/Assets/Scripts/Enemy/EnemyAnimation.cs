@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoblinAnimation : MonoBehaviour
+public class EnemyAnimation : MonoBehaviour
 {
     private Animator animator;
     Vector3 lastPosition;
