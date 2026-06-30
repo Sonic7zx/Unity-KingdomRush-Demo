@@ -1594,12 +1594,12 @@ GameObject:
   - component: {fileID: 415893674}
   - component: {fileID: 415893673}
   m_Layer: 0
-  m_Name: Wave
+  m_Name: WaveIcon_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &415893673
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1642,7 +1642,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: fd1f204ac3627844bb7a0fbeabbb1203, type: 3}
-  m_Color: {r: 1, g: 0.845912, b: 0.504717, a: 0.9019608}
+  m_Color: {r: 1, g: 0.90509886, b: 0.6933962, a: 0.3137255}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1662,7 +1662,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15, y: -3, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.28, y: 0.28, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1698,6 +1698,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevelConfig: {fileID: 11400000, guid: 98c474e371b251046b9725e6758ea9ed, type: 2}
   waveUI: {fileID: 1605702687}
+  waveIconObject:
+  - {fileID: 415893673}
+  - {fileID: 1243883193}
 --- !u!4 &448713830
 Transform:
   m_ObjectHideFlags: 0
@@ -1959,7 +1962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7372549}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.9019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9770,12 +9773,12 @@ GameObject:
   - component: {fileID: 1243883194}
   - component: {fileID: 1243883193}
   m_Layer: 0
-  m_Name: Wave
+  m_Name: WaveIcon_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1243883193
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9818,7 +9821,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: fd1f204ac3627844bb7a0fbeabbb1203, type: 3}
-  m_Color: {r: 1, g: 0.845912, b: 0.504717, a: 0.9019608}
+  m_Color: {r: 1, g: 0.90588236, b: 0.69411767, a: 0.3137255}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9838,7 +9841,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4, y: 8, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.28, y: 0.28, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -10326,7 +10329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7372549}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.9019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10772,7 +10775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7372549}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.9019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10870,8 +10873,8 @@ SceneRoots:
   - {fileID: 1352526356}
   - {fileID: 1793336576}
   - {fileID: 312360670}
-  - {fileID: 1243883194}
   - {fileID: 415893674}
+  - {fileID: 1243883194}
   - {fileID: 1287153964}
   - {fileID: 4213843664275929371}
   - {fileID: 1343401133}

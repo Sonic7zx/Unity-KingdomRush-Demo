@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
     protected int damageToPlayer = 1;
     protected int getGold = 25;
     protected int defense = 0;
-    private int currentHealth = 10;
+    private float currentHealth = 10;
     private Animator animator;
     public bool isAlive = true;
     protected virtual void Awake()
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        currentHealth -= damage * (1 - defense * 0.1f);
         if (currentHealth <= 0)
         {
             animator.SetBool("isDead", true);

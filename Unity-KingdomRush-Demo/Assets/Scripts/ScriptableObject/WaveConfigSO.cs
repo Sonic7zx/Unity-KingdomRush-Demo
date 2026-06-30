@@ -10,4 +10,5 @@ public class WaveConfigSO : ScriptableObject
     public int enemyCount;
     public float IntervalBetweenEnemies;
     public float BeforeWaveTime;
+    public int WaveIconIndex;
 }

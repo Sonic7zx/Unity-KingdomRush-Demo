@@ -20,6 +20,9 @@ public class WaveManager : MonoBehaviour
     private Coroutine waveCoroutine;
     [Header("UI")]
     [SerializeField] Text waveUI;
+    [SerializeField] SpriteRenderer[] waveIconObject;
+    private int iconIndex;
+    private bool isBreathing = false;
 
     void Awake()
     {
@@ -52,9 +55,17 @@ public class WaveManager : MonoBehaviour
 
     void Start()
     {
-        
-
         StartWaves();
+    }
+    private void Update()
+    {
+        if (isBreathing)
+        {
+            float alpha = Mathf.Lerp(80, 255, Mathf.PingPong(Time.time * 1.25f, 1f));
+            Color32 c = waveIconObject[iconIndex].color;
+            c.a = (byte)alpha;
+            waveIconObject[iconIndex].color = c;
+        }
     }
 
     public void StartWaves()
@@ -70,17 +81,21 @@ public class WaveManager : MonoBehaviour
             currentWaveIndex = i;
             WaveConfigSO waveConfig = waves[i];
             isWaveActive = true;
-            
 
-            yield return new WaitForSeconds(waveConfig.BeforeWaveTime);
+            iconIndex = waveConfig.WaveIconIndex;//设置呼吸动画的Sprite序号
+            StartIconBreathing();//开始波数UI呼吸动画
 
-            UpdateWaveUI();
+            yield return new WaitForSeconds(waveConfig.BeforeWaveTime);//等待波次间隔时间
+
+            EndIconBreathing();
+
+            UpdateWaveUI();//更新波数UI
 
             for (int j = 0; j < waveConfig.enemyCount; j++)
             {
-                SpawnEnemy(waveConfig.enemyPrefab);
-                enemiesAlive++;
-                yield return new WaitForSeconds(waveConfig.IntervalBetweenEnemies);
+                SpawnEnemy(waveConfig.enemyPrefab);//实例化生成敌人
+                enemiesAlive++;//敌人数量计数器加1
+                yield return new WaitForSeconds(waveConfig.IntervalBetweenEnemies);//等待敌人生成间隔时间
             }
 
             yield return new WaitUntil(() => enemiesAlive <= 0);
@@ -113,5 +128,15 @@ public class WaveManager : MonoBehaviour
     void UpdateWaveUI()
     {
         waveUI.text = (currentWaveIndex + 1).ToString() + " / " + waves.Count.ToString();
+    }
+    void StartIconBreathing()
+    {
+        waveIconObject[iconIndex].gameObject.SetActive(true);
+        isBreathing = true;
+    }
+    void EndIconBreathing()
+    {
+        waveIconObject[iconIndex].gameObject.SetActive(false);
+        isBreathing = false;
     }
 }
