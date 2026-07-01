@@ -35,6 +35,10 @@ public class Arrow : MonoBehaviour
         
         if (Vector2.Distance(transform.position, targetEnemy.transform.position) < 0.05f)//当箭矢到达敌人位置时
         {
+            if (targetEnemy == null)
+            {
+                ReturnToPool();
+            }
             targetEnemy.TakeDamage(damage);
             ReturnToPool();
         }

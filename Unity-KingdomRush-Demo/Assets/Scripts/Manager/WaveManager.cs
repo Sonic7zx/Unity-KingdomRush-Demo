@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class WaveManager : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class WaveManager : MonoBehaviour
     [SerializeField] SpriteRenderer[] waveIconObject;
     private int iconIndex;
     private bool isBreathing = false;
+    [Header("游戏结束")]
+    [SerializeField] GameObject missionCompeletePrefab;
+    [SerializeField] Transform canvasTransform;
 
     void Awake()
     {
@@ -105,7 +109,7 @@ public class WaveManager : MonoBehaviour
             if (i == waves.Count - 1)
             {
                 isLevelComplete = true;
-                Debug.Log("关卡胜利！");
+                CompeleteLevel();
             }
         }
     }
@@ -138,5 +142,17 @@ public class WaveManager : MonoBehaviour
     {
         waveIconObject[iconIndex].gameObject.SetActive(false);
         isBreathing = false;
+    }
+    private void CompeleteLevel()
+    {
+        Instantiate(missionCompeletePrefab, canvasTransform);
+        Time.timeScale = 0;
+        StartCoroutine(CompeleteCoroutine());
+    }
+    System.Collections.IEnumerator CompeleteCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        Time.timeScale = 1;
+        SceneManager.LoadScene("LevelSelect");
     }
 }

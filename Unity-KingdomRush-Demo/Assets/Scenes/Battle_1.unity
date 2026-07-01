@@ -1701,6 +1701,8 @@ MonoBehaviour:
   waveIconObject:
   - {fileID: 415893673}
   - {fileID: 1243883193}
+  missionCompeletePrefab: {fileID: 3214273635252796391, guid: c6877f5356d751f4585594996f360d81, type: 3}
+  canvasTransform: {fileID: 466941752}
 --- !u!4 &448713830
 Transform:
   m_ObjectHideFlags: 0
@@ -9938,7 +9940,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 2469e260f09fdd34db2cfc9d326c9eab, type: 3}
-  m_Color: {r: 1, g: 0.5707547, b: 0.5964736, a: 0.9019608}
+  m_Color: {r: 1, g: 0.3160377, b: 0.50438964, a: 0.8352941}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10023,6 +10025,8 @@ MonoBehaviour:
   maxHealth: 25
   currentHealth: 0
   healthText: {fileID: 732996199}
+  missionFailedPrefab: {fileID: 9086480880235858626, guid: 79e425991de26694787645837fdb6628, type: 3}
+  canvasTransform: {fileID: 466941752}
 --- !u!1001 &1343401133
 PrefabInstance:
   m_ObjectHideFlags: 0
