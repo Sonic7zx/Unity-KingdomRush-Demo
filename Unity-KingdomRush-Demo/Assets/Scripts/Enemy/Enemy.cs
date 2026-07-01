@@ -31,11 +31,15 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage * (1 - defense * 0.1f);
-        if (currentHealth <= 0)
+        if (isAlive)
         {
-            animator.SetBool("isDead", true);
-            isAlive = false;
+            currentHealth -= damage * (1 - defense * 0.1f);
+            if (currentHealth <= 0)
+            {
+                animator.SetBool("isDead", true);
+                PlayAudio();
+                isAlive = false;
+            }
         }
     }
     void DestroyEnemy()//由动画事件执行
@@ -44,6 +48,9 @@ public class Enemy : MonoBehaviour
         GoldManager.Instance.AddGold(getGold);
         WaveManager.Instance.OnEnemyDied();
     }
-
+    protected virtual void PlayAudio()
+    {
+        
+    }
 
 }

@@ -12,4 +12,8 @@ public class Goblin : Enemy
         defense = 1;
         base.Awake();
     }
+    protected override void PlayAudio()
+    {
+        AudioManager.Instance.PlayGoblinDieSFX();
+    }
 }

@@ -12,4 +12,8 @@ public class Barkie : Enemy
         defense = 0;
         base.Awake();
     }
+    protected override void PlayAudio()
+    {
+        AudioManager.Instance.PlayBarkieDieSFX();
+    }
 }

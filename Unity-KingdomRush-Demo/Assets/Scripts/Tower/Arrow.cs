@@ -12,6 +12,7 @@ public class Arrow : MonoBehaviour
 
     public void Initialize(Enemy target,Vector2 StartPos)
     {
+        AudioManager.Instance.PlayArrowSFX();
         targetEnemy = target;
         gameObject.SetActive(true);
         transform.position = StartPos;
@@ -25,7 +26,7 @@ public class Arrow : MonoBehaviour
 
         
 
-        if (targetEnemy == null)//当敌人被消灭时
+        if (targetEnemy == null)//当敌人物体消失
         {
             ReturnToPool();
         }

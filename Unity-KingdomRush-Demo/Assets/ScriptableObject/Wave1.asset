@@ -16,3 +16,4 @@ MonoBehaviour:
   enemyCount: 5
   IntervalBetweenEnemies: 1.5
   BeforeWaveTime: 4
+  WaveIconIndex: 0

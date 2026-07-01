@@ -51,7 +51,8 @@ public class BuildSite : MonoBehaviour
         {
             sprite.color = color;//悬停变色
             transform.localScale *= scaleMultiplier;//悬停放大
-        }        
+        }
+        AudioManager.Instance.PlayOpenMenuSFX();//播放打开菜单音效
         GameObject menuIns = Instantiate(buildMenuPrefab, canvas.transform);//生成建造菜单
         Vector3 worldPos = transform.position;//获取世界坐标
         Vector2 screenPos = Camera.main.WorldToScreenPoint(worldPos);//将世界坐标转换为屏幕坐标
