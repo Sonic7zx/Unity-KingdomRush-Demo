@@ -1,4 +1,7 @@
 # Unity-KingdomRush-Demo
+## 🎥 项目演示视频
+[点击此处观看演示视频](https://www.bilibili.com/video/BV1qHTs6SEcQ)
+
 ## 🎮 游戏简介
 一款基于 Unity 2022.3 开发的 2D 塔防游戏 Demo。灵感来源于《王国保卫战》，玩家通过建造防御塔抵御敌人进攻，保护终点水晶。项目从零开始独立开发，包含完整的建造、战斗、波次和经济系统。
 
@@ -37,6 +40,3 @@
 2. 用 Unity 2022.3 LTS 打开项目文件夹
 3. 打开场景 `Assets/Scenes/StartMenu.unity`（或 `Main.unity`）
 4. 点击 Play 运行游戏
-
-## 🎥 演示视频
-[点击此处观看演示视频](https://www.bilibili.com/video/BV1qHTs6SEcQ)
