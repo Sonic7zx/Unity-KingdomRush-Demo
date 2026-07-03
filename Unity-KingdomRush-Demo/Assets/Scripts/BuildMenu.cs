@@ -17,7 +17,8 @@ public class BuildMenu : MonoBehaviour, IPointerExitHandler
     public void OnArrowTowerClick()
     {
         if (GoldManager.Instance.HasEnough(arrowTowerCost))
-        {
+        {   
+            AudioManager.Instance.PlayCoinSFX();
             GoldManager.Instance.Spend(arrowTowerCost);
             currentSite.ArcherTowerBuild(arrowTowerPrefab);
             Destroy(gameObject);
@@ -29,7 +30,6 @@ public class BuildMenu : MonoBehaviour, IPointerExitHandler
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("鼠标移出菜单");
         Destroy(gameObject);
     }
     public void OnCancelClick()

@@ -890,6 +890,9 @@ MonoBehaviour:
   arrowClip: {fileID: 8300000, guid: dea88c53afdcd2f47ba28b94e0fe5caa, type: 3}
   GoblinDieClip: {fileID: 8300000, guid: d8c1c98965a5f6f428e9a2a47f7d612b, type: 3}
   BarkieDieClip: {fileID: 8300000, guid: 0ad8b84d1e1ab29469d8f9eb9ac0055d, type: 3}
+  MissionCompeleteClip: {fileID: 8300000, guid: 97e39888286a4fe4986a1fc3f3b887b7, type: 3}
+  MissionFailedClip: {fileID: 8300000, guid: df94d0bd25d12c949a9950a7e0947d56, type: 3}
+  CoinClip: {fileID: 8300000, guid: c2081b6fa98f86444acd8a6dc867098b, type: 3}
   volumeSlider: {fileID: 0}
 --- !u!4 &1167250144
 Transform:

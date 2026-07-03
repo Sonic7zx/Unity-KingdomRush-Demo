@@ -14,6 +14,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip arrowClip;
     [SerializeField] AudioClip GoblinDieClip;
     [SerializeField] AudioClip BarkieDieClip;
+    [SerializeField] AudioClip MissionCompeleteClip;
+    [SerializeField] AudioClip MissionFailedClip;
+    [SerializeField] AudioClip CoinClip;
     [Header("其他配置")]
     [SerializeField] Slider volumeSlider;
 
@@ -59,5 +62,8 @@ public class AudioManager : MonoBehaviour
     public void PlayArrowSFX() => PlaySFX(arrowClip);
     public void PlayGoblinDieSFX() => PlaySFX(GoblinDieClip);
     public void PlayBarkieDieSFX() => PlaySFX(BarkieDieClip);
+    public void PlayCompeleteSFX() => PlaySFX(MissionCompeleteClip);
+    public void PlayFailedSFX() => PlaySFX(MissionFailedClip);
+    public void PlayCoinSFX() => PlaySFX(CoinClip);
 
 }

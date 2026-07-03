@@ -147,6 +147,7 @@ public class WaveManager : MonoBehaviour
     {
         Instantiate(missionCompeletePrefab, canvasTransform);
         Time.timeScale = 0;
+        AudioManager.Instance.PlayCompeleteSFX();
         StartCoroutine(CompeleteCoroutine());
     }
     System.Collections.IEnumerator CompeleteCoroutine()

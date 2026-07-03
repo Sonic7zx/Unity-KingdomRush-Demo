@@ -27,6 +27,7 @@ public class Destination : MonoBehaviour
     {
         Instantiate(missionFailedPrefab, canvasTransform);
         Time.timeScale = 0;
+        AudioManager.Instance.PlayFailedSFX();
         StartCoroutine(FailedCoroutine());
     }
     System.Collections.IEnumerator FailedCoroutine()
